@@ -42,6 +42,16 @@ public class Lloyd
         {
             matrizDistancias[0][i] = distanciaEuclidea(c1,this.listaNodos.get(i));
             matrizDistancias[1][i] = distanciaEuclidea(c2,this.listaNodos.get(i));
+            if (matrizDistancias[0][i] < matrizDistancias[1][i])
+            {
+                matrizDistancias[0][i] = 1;
+                matrizDistancias[1][i] = 0;
+            }
+            else
+            {
+                matrizDistancias[1][i] = 1;
+                matrizDistancias[0][i] = 0;
+            }
         }
     }
 }
