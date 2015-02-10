@@ -1,11 +1,14 @@
 package pr3.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -102,8 +105,8 @@ public class Ventana {
 			}
 		});
 		
-		botonKMeans = new JButton(Str.BTN_KMEANS);
-		botonKMeans.setEnabled(false);
+		//botonKMeans = new JButton(Str.BTN_KMEANS);
+		//botonKMeans.setEnabled(false);
 		
 		botonBayes = new JButton(Str.BTN_BAYES);
 		botonBayes.setEnabled(false);
@@ -148,10 +151,10 @@ public class Ventana {
 		});
 		
 		JPanel panelMetodos = new JPanel(new GridLayout(4, 1));
-		panelMetodos.add(botonKMeans);
+		//panelMetodos.add(botonKMeans);
 		panelMetodos.add(botonBayes);
 		panelMetodos.add(botonLloyd);
-		panelMetodos.add(botonSOM);
+		//panelMetodos.add(botonSOM);
 		
 		JPanel panelArribaCentro = new JPanel(new GridLayout(1, 1));
 		panelArribaCentro.setBorder(new TitledBorder(Str.TXT_METODOS));
@@ -160,19 +163,19 @@ public class Ventana {
 		JPanel panelArriba = new JPanel(new GridLayout(1, 3));
 		panelArriba.setBorder(new TitledBorder(""));
 		
-		JPanel panelBotonCargar = new JPanel(new GridLayout(3, 1));
+		JPanel panelBotonCargar = new JPanel(new GridLayout(5, 1));
+                botonCargar.setBackground(Color.GREEN);
+                botonResetCentro.setForeground(Color.red);
 		panelBotonCargar.add(new JLabel());
 		panelBotonCargar.add(botonCargar);
+                panelBotonCargar.add(botonResetCentro);
 		panelBotonCargar.add(new JLabel());
 		
-		JPanel panelBotonReset = new JPanel(new GridLayout(3, 1));
-		panelBotonReset.add(new JLabel());
-		panelBotonReset.add(botonResetCentro);
-		panelBotonReset.add(new JLabel());
+		
 		
 		panelArriba.add(panelBotonCargar);
 		panelArriba.add(panelArribaCentro);
-		panelArriba.add(panelBotonReset);
+		
 		
 		panelPrin.add(panelArriba, BorderLayout.NORTH);
 		
@@ -255,12 +258,32 @@ public class Ventana {
 					a[2] = Double.parseDouble(t3.getText());
 					a[3] = Double.parseDouble(t4.getText());
 	
-					if (Op.distEuclidea(a, centros[0]) < 
-							Op.distEuclidea(a, centros[1]))
+					if (Op.distEuclidea(a, centros[0]) < Op.distEuclidea(a, centros[1])){
 						result.setText((String)clases.keySet().toArray()[0]);
-					else
+                                                  Icon icono_ok;
+       
+        
+                                        icono_ok = new ImageIcon(getClass().getResource("/img/iconOK.png"));
+
+
+                                      JOptionPane pane = new JOptionPane();
+
+                                      pane.showMessageDialog(null, "","Verificado",JOptionPane.INFORMATION_MESSAGE, icono_ok);
+                                      pane.setBackground(Color.GREEN);
+                                      pane.setForeground(Color.GREEN);
+                                        
+                                        }
+                                        else{
 						result.setText((String)clases.keySet().toArray()[1]);
-					
+                                                
+                                                 Icon icono_no;
+                                        icono_no = new ImageIcon(getClass().getResource("/img/iconNO.png"));
+                                        JOptionPane pane = new JOptionPane();
+
+                                      pane.showMessageDialog(null, "","Denegado",JOptionPane.ERROR_MESSAGE, icono_no);
+                                      pane.setBackground(Color.red);
+                                      pane.setForeground(Color.red);
+                                        }
 				}
 				catch(NumberFormatException ex){
 				
