@@ -19,9 +19,14 @@ public class FileManager {
     
     private static String path = "";
 	
-	public static String[] loadAtributos(){
+	public static ArrayList<Clase>[] loadAtributos(){
 		
 		String[] rej = null;
+                ArrayList<Nodo> c1 = new ArrayList<>();
+                ArrayList<Nodo> c2 = new ArrayList<>();
+
+                Clase clase1;
+                Clase clase2;
 		
 		JFileChooser chooser = new JFileChooser(path);
 		chooser.setDialogTitle("Abrir Archivo de Atributos");
@@ -43,11 +48,11 @@ public class FileManager {
 				BufferedReader br = new BufferedReader(new InputStreamReader(file));
 
 				String line = null;
-                                ArrayList<Nodo> c1 = new ArrayList<>();
-                                ArrayList<Nodo> c2 = new ArrayList<>();
+                                c1 = new ArrayList<>();
+                                c2 = new ArrayList<>();
                                 
-                                Clase clase1 = new Clase("Iris-setosa",c1);
-                                Clase clase2 = new Clase("Iris-versicolor",c2);
+                                clase1 = new Clase("Iris-setosa",c1);
+                                clase2 = new Clase("Iris-versicolor",c2);
                                 
                                 while(br.ready())
                                 {
@@ -63,7 +68,8 @@ public class FileManager {
                                         
                                 }
 				
-				
+				System.out.println(clase1.getClase().size());
+                                System.out.println(clase2.getClase().size());
 
 				br.close();
 				
@@ -80,7 +86,7 @@ public class FileManager {
 			}
 		}
 		
-		return rej;
+		return clase1;
 		
 	}
 	

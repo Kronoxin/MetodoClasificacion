@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import metodosclasificacion.bayes.Bayes;
+import metodosclasificacion.bayes.Clase;
+import metodosclasificacion.bayes.Nodo;
 
 
 /**
@@ -48,7 +51,7 @@ public class NuevaGUI extends JFrame{
     JMenuItem item_Instrucciones = new JMenuItem("Instrucciones");
     JMenuItem item_mi = new JMenuItem("Saber más..");
     
-    private ArrayList<Nodo> atributos;
+    private ArrayList<Clase> clases;
     private Container contenedorPrincipal;
     
     Font fuente = new Font("Verdana", Font.BOLD,14);
@@ -56,7 +59,7 @@ public class NuevaGUI extends JFrame{
             
     
     public NuevaGUI (){
-        setTitle("Practica MOG - Algoritmo TSP");
+        setTitle("Practica IC - Algoritmo Bayes");
         
         panel_menu = new JPanel(new BorderLayout(1, 2));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,9 +127,9 @@ public class NuevaGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent arg0) {
                 StringBuffer aux = new StringBuffer();
-                try{ atributos = FileManager.loadAtributos();
+                try{ c1 = FileManager.loadAtributos();
                  
-                    TSP algoritmo = new TSP(atributos);
+                    Bayes algoritmo = new Bayes(c1,c2);
                     aux = algoritmo.CrearMatrizBidimensional();
                     matrizBidi.setText(aux.toString());
                     StringBuffer sb = new StringBuffer();
