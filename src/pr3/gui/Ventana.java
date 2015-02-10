@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -29,7 +30,7 @@ import pr3.lloyd.Lloyd;
 
 
 public class Ventana {
-	
+	private JMenuBar barra_menu;
 	private JFrame ventana;
 	
 	private double[][] centros = { {4.6, 3.0, 4.0, 0.0},
@@ -59,6 +60,7 @@ public class Ventana {
 		clases = new HashMap<String, Clase>();
 		
 		JPanel panelPrin = new JPanel(new BorderLayout());
+                
 		
 		// PANEL SUPERIOR------------------------------------------------------
 		
@@ -161,7 +163,7 @@ public class Ventana {
 		panelArribaCentro.add(panelMetodos);
 		
 		JPanel panelArriba = new JPanel(new GridLayout(1, 3));
-		panelArriba.setBorder(new TitledBorder(""));
+		//panelArriba.setBorder(new TitledBorder(""));
 		
 		JPanel panelBotonCargar = new JPanel(new GridLayout(5, 1));
                 botonCargar.setBackground(Color.GREEN);
@@ -306,7 +308,7 @@ public class Ventana {
 	private void enableAll(){
 		
 		//botonKMeans.setEnabled(true);
-		botonBayes.setEnabled(true);
+		//botonBayes.setEnabled(true);
 		botonLloyd.setEnabled(true);
 		//botonSOM.setEnabled(true);
 		botonComprobar.setEnabled(true);

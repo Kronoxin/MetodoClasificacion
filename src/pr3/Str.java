@@ -4,7 +4,7 @@ public class Str {
 	
 	public static final String NOMBRE = "Algoritmos de Clasificacion";
 	
-	public static final String TXT_COMPROBAR = "Comprobar a que clase pertenece el punto: ";
+	public static final String TXT_COMPROBAR = "Introducir puntos para comprobar su clase: ";
 	public static final String TXT_METODOS = "Metodos";
 	
 	public static final String BTN_CARGAR = "Cargar";
