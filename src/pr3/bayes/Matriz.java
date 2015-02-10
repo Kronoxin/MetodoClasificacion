@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package metodosclasificacion.bayes;
+package pr3.bayes;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,23 +27,23 @@ public class Matriz {
     }
     public Matriz(double[][] x) {
         this.x=x;
-        n=x.length;
+        n=x[0].length;
    }
 //otras funciones miembro
     
     public static Matriz traspuesta(Matriz a){
-        int n=a.n;
-        Matriz resultado=new Matriz(a.n);
-        for(int i=0; i<n; i++){
-            for(int j=0; j<n; j++){
-                resultado.x[i][j]=a.x[j][i];
-            }
-        }
-        return resultado;
+        
+        Matriz resultado2 = new Matriz(new double[4][1]);
+
+        for (int i = 0; i < a.n; i++)
+            resultado2.getX()[i][0] = a.getX()[0][i];
+        
+        return resultado2;
     }
     
      public static Matriz producto(Matriz a, Matriz b){
-        Matriz resultado=new Matriz(a.n);
+        Matriz resultado=new Matriz(new double[a.getX().length][a.getX()[0].length]);
+        
         for(int i=0; i<a.n; i++){
             for(int j=0; j<a.n; j++){
                 for(int k=0; k<a.n; k++){
@@ -65,12 +65,13 @@ public class Matriz {
     }
      
      public static Matriz resta(Matriz a, Matriz b){
-        Matriz resultado=new Matriz(a.n);
-        for(int i=0; i<a.n; i++){
+         
+        Matriz resultado=new Matriz(new double[1][a.n]);
+        
             for(int j=0; j<a.n; j++){
-                resultado.x[i][j]=a.x[i][j]-b.x[i][j];
+                resultado.x[0][j]=a.x[0][j]-b.x[0][j];
             }
-        }
+        
         return resultado;
     }
 
