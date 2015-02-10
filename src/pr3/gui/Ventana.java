@@ -259,30 +259,24 @@ public class Ventana {
 					a[3] = Double.parseDouble(t4.getText());
 	
 					if (Op.distEuclidea(a, centros[0]) < Op.distEuclidea(a, centros[1])){
-						result.setText((String)clases.keySet().toArray()[0]);
-                                                  Icon icono_ok;
-       
+						//result.setText((String)clases.keySet().toArray()[0]);
+                                                 
         
-                                        icono_ok = new ImageIcon(getClass().getResource("/img/iconOK.png"));
-
-
+                                        
                                       JOptionPane pane = new JOptionPane();
 
-                                      pane.showMessageDialog(null, "","Verificado",JOptionPane.INFORMATION_MESSAGE, icono_ok);
-                                      pane.setBackground(Color.GREEN);
-                                      pane.setForeground(Color.GREEN);
+                                      pane.showMessageDialog(null, "Pertenece a la clase Iris-setosa","Iris-setosa",JOptionPane.INFORMATION_MESSAGE);
+                                     
                                         
                                         }
                                         else{
-						result.setText((String)clases.keySet().toArray()[1]);
+						//result.setText((String)clases.keySet().toArray()[1]);
                                                 
-                                                 Icon icono_no;
-                                        icono_no = new ImageIcon(getClass().getResource("/img/iconNO.png"));
+                                      
                                         JOptionPane pane = new JOptionPane();
 
-                                      pane.showMessageDialog(null, "","Denegado",JOptionPane.ERROR_MESSAGE, icono_no);
-                                      pane.setBackground(Color.red);
-                                      pane.setForeground(Color.red);
+                                      pane.showMessageDialog(null, "Pertenece a la clase Iris-versicolor","Iris-Versicolor",JOptionPane.INFORMATION_MESSAGE);
+                  
                                         }
 				}
 				catch(NumberFormatException ex){
